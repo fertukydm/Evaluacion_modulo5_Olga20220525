@@ -1,7 +1,7 @@
 // screens/EditProfileScreen.js
 import React, { useEffect, useState } from 'react';
 import { View, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
-import { auth, db } from '../firebase';
+import { auth, db } from '../firebase/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import FormInput from '../components/FormInput';
 
