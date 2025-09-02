@@ -1,30 +1,26 @@
-// screens/SplashScreen.js
-import React, { useEffect } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase';
+import React from "react";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 
-export default function SplashScreen({ navigation }) {
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
-      if (user) {
-        navigation.replace('Home');
-      } else {
-        navigation.replace('Login');
-      }
-    });
-
-    return unsubscribe;
-  }, []);
-
+export default function SplashScreen() {
   return (
     <View style={styles.container}>
-      <Text>Bienvenido a la App</Text>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" color="#fff" />
+      <Text style={styles.text}>Cargando...</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  container: {
+    flex: 1,
+    backgroundColor: "#9b59b6", // lila
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    marginTop: 20,
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#fff",
+  },
 });
